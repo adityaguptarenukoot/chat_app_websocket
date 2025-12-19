@@ -1,16 +1,43 @@
-# React + Vite
+WebSocket Chat Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple real-time chat application built using Flask for the backend and React for the frontend, communicating through native WebSockets.
 
-Currently, two official plugins are available:
+Features:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Real-time messaging between multiple users
 
-## React Compiler
+Username-based chat system
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Message timestamps
 
-## Expanding the ESLint configuration
+Broadcast messages to all connected clients
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tech Stack:
+Backend: Python, Flask, simple-websocket, flask-cors
+Frontend: React, Vite, native WebSocket API
+
+Project Structure:
+The project contains a backend folder with the Flask server and a frontend folder with the React application.
+
+How to Run:
+Start the backend by installing dependencies and running python app.py on port 5001.
+Start the frontend by running npm install followed by npm run dev.
+Open the frontend in the browser and connect to the chat.
+
+How It Works:
+The backend exposes a WebSocket endpoint at /ws. It keeps track of connected clients, receives messages, and broadcasts them to all users.
+The frontend establishes a WebSocket connection, sends messages, and displays incoming messages with timestamps.
+
+Message Format:
+Messages are exchanged in JSON format containing username, text, and timestamp.
+
+WebSocket Endpoint:
+ws://localhost:5001/ws
+
+Debugging:
+Backend logs show client connections, disconnections, and messages.
+Frontend logs can be viewed in the browser console.
+WebSocket traffic can be inspected in Chrome DevTools under the Network → WS tab.
+
+Future Improvements:
+Authentication, chat rooms, message persistence, private messaging, typing indicators, file sharing, and read receipts.
